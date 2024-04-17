@@ -20,13 +20,24 @@ Answer:
 Country with highest level of transaction evenue: "United States"	13222160000
 City with highest level of transaction revenue: "San Francisco"	1564320000
 
-Question 2: Question 2: What is the average number of products ordered avg from visitors in each  country?
+Question 2: Question 2: What is the average number of products ordered avg from visitors in each city and country?
 
-SQL Queries:
+SQL query: 
+
+--avg from visitors in each  country?--
 SELECT  country, AVG(CAST("productQuantity" as integer)) As averageorders
 FROM all_sessions
 WHERE "productQuantity" IS NOT NULL
 GROUP BY country
+ORDER BY averageorders DESC
+--1. avg from each visitors in each city 
+
+SELECT  city, AVG(CAST("productQuantity" as integer)) As averageorders
+FROM all_sessions
+WHERE "productQuantity" IS NOT NULL 
+AND city != 'not available in demo dataset' 
+AND city != '(no set)'
+GROUP BY city
 ORDER BY averageorders DESC
 
 Answer:
@@ -71,10 +82,33 @@ Question 3: Question 3: Is there any pattern in the types (product categories)
 of products ordered from visitors in each city and country?
 
 SQL Queries:
+SELECT country, "productQuantity", "v2ProductName"
+FROM all_sessions
+WHERE "productQuantity" IS NOT NULL
+ORDER BY "productQuantity"
+
+-- analysis of product categories in countries
+-- analysis of product categories in cities
+
+SELECT city, "productQuantity", "v2ProductName"
+FROM all_sessions
+WHERE "productQuantity" IS NOT NULL
+AND city != 'not available in demo dataset'
+AND city != '(not set)' 
+ORDER BY "productQuantity"
+
+
+
 
 Answer:
-
-
+observations about countries: 
+	 --* spain is an outlier and USA are outliers compared to other countries
+	 --* buyers bought specific products in larger quantities in these countries
+  
+bservations about the cities: 
+	 --* Madrid and USA cities are outliers outlier
+	 --* Specific products were bought in larger quantities in these cities 
+	 -- compared to others (Madrid, Atlanta, Salem)
 
 Question 4: Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?
 
