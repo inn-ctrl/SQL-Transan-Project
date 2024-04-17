@@ -4,7 +4,18 @@
 (fill in your description and goals here)
 
 ## Process
-### Data Cleaning
+### Setting up Database and Data Cleaning
+* Setting up Database
+  The database was set up in Postgresql using provided datasets. The following tables was created as a result:
+  - products table
+  - sales_by_sku table
+  - sales_report table
+  - analytics table and
+  - all_sessions table
+ 
+* Data cleaning
+  - during importation, there were underlying table columns that made it difficult to extract the information. That was deleted using the queries provided in 'cleaning_data' section page.
+  - 
 ### Data Analysis 
 
 ## Results
