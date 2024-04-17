@@ -4,8 +4,23 @@ What issues will you address by cleaning the data?
 
 Below are data cleaning issues I addressed: 
 
-1. There are multiple headings across all tables. remove one.
-2. The columns data type is 'text' throughout. Change to relevant data types
+1. There are multiple headings across all tables due to pre-created pgadmin columns and csv columns. remove one.
+
+   SQL CODES used
+   
+   DELETE FROM products
+   WHERE name = 'name'
+   
+   DELETE FROM sales_report
+   WHERE name = 'name'
+   
+   DELETE FROM sales_by_sku
+   WHERE total_ordered = 'total_ordered'
+
+   DELETE FROM all_sessions
+   WHERE time= 'time'
+   
+3. The columns data type is 'text' throughout. Change to relevant data types
 
 
 
