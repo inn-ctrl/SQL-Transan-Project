@@ -23,3 +23,9 @@ WHERE city = 'New York' AND country = 'Canada';
 SELECT * 
 FROM all_sessions
 WHERE city = 'New York' AND country = 'Canada'
+
+* Some cities have irrelevant values. I did not have to delete them because it might affect future data analysis, instead I filtered them out from queries. I used the following SQL Queries:
+  
+* SELECT city
+FROM all_sessions
+WHERE city != '(not set)' and city != 'not available in demo dataset'
