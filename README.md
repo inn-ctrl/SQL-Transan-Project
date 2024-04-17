@@ -4,8 +4,8 @@
 (fill in your description and goals here)
 
 ## Process
-### (your step 1)
-### (your step 2)
+### Data Cleaning
+### Data Analysis 
 
 ## Results
 (fill in what you discovered this data could tell you and how you used the data to answer those questions)
