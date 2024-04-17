@@ -68,3 +68,8 @@ USING units_sold::integer
 
 ALTER TABLE sales_report
 ALTER COLUMN total_ordered INTEGER;
+
+* The remaining columns, I changed data type inside SQL queries as needed to convert from text to numeric as follows:
+- CAST("productQuantity" as integer
+- CAST("productQuantity" as integer)
+* selecting columns with capital letters was not possible. (only productquantity would work but not productQuantity). To work around that, I enclosed that name (productQuantity) in quotes ("productQuanityt") and casted it into numeric data type. 
