@@ -1,7 +1,13 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-(fill in your description and goals here)
+(fill in your description and goals here) 
+This is the project about product sales in the ecommerce business. The end objective is to use SQL query to come up with insights that respond to business prompts. 
+
+Goals: 
+- Populating data in the database and cleaning them for proper analysis
+- Applying SQL queries learned so far to solve prompted questions
+- Observing created queries to come up with business insights
 
 ## Process
 ### Setting up Database and Data Cleaning
