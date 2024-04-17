@@ -17,11 +17,17 @@ ORDER BY totals DESC
 
 Answer: 
 
-
+Country with highest level of transaction evenue: "United States"	13222160000
+City with highest level of transaction revenue: "San Francisco"	1564320000
 
 Question 2: Question 2: What is the average number of products ordered avg from visitors in each  country?--
 
 SQL Queries:
+SELECT  country, AVG(CAST("productQuantity" as integer)) As averageorders
+FROM all_sessions
+WHERE "productQuantity" IS NOT NULL
+GROUP BY country
+ORDER BY averageorders DESC
 
 Answer:
 
