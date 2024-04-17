@@ -15,6 +15,7 @@
  
 * Data cleaning
   - during importation, there were underlying table columns that made it difficult to extract the information. That was deleted using the queries provided in 'cleaning_data' section page.
+  - similarly, all columns were given the 'text' data type for the ease of importation. They were converted to relevant data types as the project advanced
   - 
 ### Data Analysis 
 
