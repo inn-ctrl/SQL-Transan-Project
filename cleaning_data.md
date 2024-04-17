@@ -22,9 +22,49 @@ Below are data cleaning issues I addressed:
    
 3. The columns data type is 'text' throughout. Change to relevant data types
 
-
-
-
-
 Queries:
 Below, provide the SQL queries you used to clean your data.
+
+ALTER TABLE all_sessions
+ALTER COLUMN date
+TYPE DATE
+USING date::DATE
+
+ALTER TABLE sales_by_sku
+ALTER COLUMN total_ordered
+TYPE INTEGER
+USING total_ordered::integer
+
+ALTER TABLE sales_report
+ALTER COLUMN ratio
+TYPE FLOAT
+USING ratio::FLOAT
+
+ALTER TABLE analytics
+ALTER COLUMN bounces
+TYPE INTEGER
+USING bounces::integer
+
+ALTER TABLE analytics
+ALTER COLUMN unit_price
+TYPE INTEGER
+USING unit_price::integer
+
+
+ALTER TABLE analytics
+ALTER COLUMN timeonsite
+TYPE INTEGER
+USING timeonsite::integer
+
+ALTER TABLE analytics
+ALTER COLUMN pageviews
+TYPE INTEGER
+USING pageviews::integer
+
+ALTER TABLE analytics
+ALTER COLUMN units_sold
+TYPE INTEGER
+USING units_sold::integer
+
+ALTER TABLE sales_report
+ALTER COLUMN total_ordered INTEGER;
