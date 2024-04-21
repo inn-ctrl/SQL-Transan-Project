@@ -119,6 +119,36 @@ Observations about the cities:
 Question 4: Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?
 
 SQL Queries:
+--a. top-selling product from each country
+SELECT * 
+FROM (
+--1. rank every product based on countries and order them by product names
+	SELECT al.*,
+	RANK() OVER(partition by country ORDER BY"v2ProductName"  ) as product_rank
+	FROM all_sessions al
+-- 2. filter missing values 
+	WHERE country != 'not available in demo dataset'
+	AND country != '(not set)'
+	AND "productQuantity" IS NOT NULL
+) AS ranked_country
+-- 2. extract only the first from each country by using a subquery
+WHERE ranked_country.product_rank = 1
+
+
+-- b. top-selling product from each city
+SELECT * 
+FROM (
+--1. rank every product based on city and order them by product names
+	SELECT al.*,
+	RANK() OVER(partition by city ORDER BY"v2ProductName"  ) as product_rank
+	FROM all_sessions al
+-- 2. filter missing values 
+	WHERE city != 'not available in demo dataset'
+	AND city != '(not set)'
+	AND "productQuantity" IS NOT NULL
+) AS ranked_city
+-- 2. extract only the first from each city by using a subquery
+WHERE ranked_city.product_rank = 1
 
 Answer:
 
@@ -127,5 +157,21 @@ Answer:
 Question 5: Question 5: Can we summarize the impact of revenue generated 
 
 SQL Queries:
+
+-- we use GROUP BY to totalize revenues generated from each country--
+SELECT country, SUM("totalTransactionRevenue"::int) as transcountry
+FROM all_sessions
+WHERE "totalTransactionRevenue" IS NOT NULL
+AND country != '(not set)'
+GROUP BY country
+
+-- we use GROUP BY to totalize revenues generated from each city--
+SELECT city, SUM("totalTransactionRevenue"::int) as transcity
+FROM all_sessions
+WHERE "totalTransactionRevenue" IS NOT NULL
+AND city != 'not available in demo dataset'
+AND city != '(not set)'
+GROUP BY city
+
 
 Answer:
