@@ -152,9 +152,12 @@ WHERE ranked_city.product_rank = 1
 
 Answer:
 
+Is there any pattern? Spain and United States are visible outliers. 
 
+-- Spain is an outlier with the product quantity considerably higher than other cities. United states also consumed more quanitities than other countries. 
 
 Question 5: Question 5: Can we summarize the impact of revenue generated 
+
 
 SQL Queries:
 
