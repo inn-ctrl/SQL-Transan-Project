@@ -98,24 +98,45 @@ city average:
 
 
 SQL Queries:
+Products ordered in each country:
 
+SELECT country, "productQuantity", "v2ProductName"
+FROM all_sessions
+WHERE "productQuantity" IS NOT NULL
+ORDER BY "productQuantity"
 
+Products ordered in each city:
+
+SELECT city, "productQuantity", "v2ProductName"
+FROM all_sessions
+WHERE "productQuantity" IS NOT NULL
+AND city != 'not available in demo dataset'
+AND city != '(not set)' 
+ORDER BY "productQuantity"
 
 Answer:
 
+Observation analysis of product categories in countries:
 
+*spain is an outlier and USA are outliers compared to other countries
+*buyers bought specific products in larger quantities in these countries
 
+Observatin analysis of product categories in cities:
+
+* Madrid and USA cities are outliers outlier
+* Specific products were bought in larger quantities in these cities compared to others (Madrid, Atlanta, Salem)
 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
 
-SQL Queries:
+SQL Queries: (To get top-selling product from each country/city, we use a window function that ranks all countries/cities based on the product quantities, then use a subquery to filter only those countries with the first rank.
 
 --a. top-selling product from each country
+/*Main query*/
 SELECT * 
 FROM (
---1. rank every product based on countries and order them by product names
+--1. rank every product based on countries and order them by product names in a subquery
 	SELECT al.*,
 	RANK() OVER(partition by country ORDER BY"v2ProductName"  ) as product_rank
 	FROM all_sessions al
@@ -129,9 +150,10 @@ WHERE ranked_country.product_rank = 1
 
 
 -- b. top-selling product from each city
+/*Main query*/
 SELECT * 
 FROM (
---1. rank every product based on city and order them by product names
+--1. rank every product based on city and order them by product names in a subquery
 	SELECT al.*,
 	RANK() OVER(partition by city ORDER BY"v2ProductName"  ) as product_rank
 	FROM all_sessions al
@@ -172,8 +194,38 @@ GROUP BY city
 
 
 Answer:
+Summary of countries and total revenues: 
+
+Country		transcountry
+"Australia"	358000000
+"Canada"	82160000
+"Israel"	602000000
+"Switzerland"	16990000
+"United States"	13222160000
 
 
+Summary of cities and total revenues: 
+
+city		transcity
+"Atlanta"	854440000
+"Austin"	157780000
+"Chicago"	449520000
+"Columbus"	21990000
+"Houston"	38980000
+"Los Angeles"	479480000
+"Mountain View"	483360000
+"Nashville"	157000000
+"New York"	598350000
+"Palo Alto"	608000000
+"San Bruno"	103770000
+"San Francisco"	1564320000
+"San Jose"	262380000
+"Seattle"	358000000
+"Sunnyvale"	992230000
+"Sydney"	358000000
+"Tel Aviv-Yafo"	602000000
+"Toronto"	82160000
+"Zurich"	16990000
 
 
 
