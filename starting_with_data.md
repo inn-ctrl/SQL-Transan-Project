@@ -175,3 +175,35 @@ GROUP BY city
 
 
 Answer:
+Summary of countries and total revenues: 
+
+Country		transcountry
+"Australia"	358000000
+"Canada"	82160000
+"Israel"	602000000
+"Switzerland"	16990000
+"United States"	13222160000
+
+
+Summary of cities and total revenues: 
+
+city		transcity
+"Atlanta"	854440000
+"Austin"	157780000
+"Chicago"	449520000
+"Columbus"	21990000
+"Houston"	38980000
+"Los Angeles"	479480000
+"Mountain View"	483360000
+"Nashville"	157000000
+"New York"	598350000
+"Palo Alto"	608000000
+"San Bruno"	103770000
+"San Francisco"	1564320000
+"San Jose"	262380000
+"Seattle"	358000000
+"Sunnyvale"	992230000
+"Sydney"	358000000
+"Tel Aviv-Yafo"	602000000
+"Toronto"	82160000
+"Zurich"	16990000
